@@ -9,6 +9,32 @@
     <link rel="stylesheet" href="public/css/style.css">
 </head>
 <body>
+    <!--  -->
+    <div class="player__container">
+        <!-- Song -->
+        <div class="player__img-container">
+            <img src="public/img/japan.jpg" alt="Album Art">
+        </div>
+        <h2 id="player__title">Taste of Japan</h2>
+        <h3 id="player__artist">PeriTune</h3>
+        <audio src="public/music/japan.mp3" hidden></audio>
+        <!-- Progress -->
+        <div class="player__progress-container" id="progress-container">
+            <div class="player__progress" id="progress">
+
+            </div>
+            <div class="player__duration-wrapper">
+                <span id="current-time">0:00</span>
+                <span id="duration">02:22</span>
+            </div>
+        </div>
+        <!-- Controls -->
+        <div class="player__controls">
+            <i class="fas fa-backward" id="prev" title="Previous"></i>
+            <i class="fas fa-play main-button" id="play" title="Play"></i>
+            <i class="fas fa-forward" id="next" title="Next"></i>
+        </div>
+    </div>
     <!-- Script -->
     <script src="public/js/script.js"></script>
 </body>

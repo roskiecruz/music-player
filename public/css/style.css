@@ -16,15 +16,29 @@ body {
   font-size: 12px;
 }
 
+.player__container {
+  height: 500px;
+  width: 400px;
+  background: #e7e7e7;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px 5px rgba(0, 0, 0, 0.3);
+}
 
-
-.img-container {
-
+.player__img-container {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
   position: relative;
   top: -50px;
   left: 50px;
 }
 
+.player__img-container img {
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 5px 30px 5px rgba(0, 0, 0, 0.5);
+}
 
 h2 {
   font-size: 25px;
@@ -40,7 +54,7 @@ h3 {
 }
 
 /* Progress */
-.progress-container {
+.player__progress-container {
   background: #fff;
   border-radius: 5px;
   cursor: pointer;
@@ -49,16 +63,16 @@ h3 {
   width: 90%;
 }
 
-.progress {
+.player__progress {
   background: #242323;
   border-radius: 5px;
   height: 100%;
   /* Change this to show progress */
-  width: 66%;
+  width: 30%;
   transition: width 0.1s linear;
 }
 
-.duration-wrapper {
+.player__duration-wrapper {
   position: relative;
   top: -25px;
   display: flex;
@@ -66,7 +80,7 @@ h3 {
 }
 
 /* Controls */
-.player-controls {
+.player__controls {
   position: relative;
   top: -15px;
   left: 120px;
@@ -77,9 +91,13 @@ h3 {
   font-size: 30px;
   color: rgb(129, 129, 129);
   margin-right: 30px;
-
+  cursor: pointer;
+  user-select: none;
 }
 
+.fas:hover {
+  filter: brightness(80%);
+}
 
 
 .main-button {
@@ -90,9 +108,12 @@ h3 {
 
 /* Media query: iPhone (Vertical) */
 @media screen and (max-width: 376px) {
+  .player__container {
+    width: 95vw;
 
+  }
 
-  .img-container {
+  .player__img-container {
     left: 29px;
   }
 
