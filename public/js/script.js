@@ -30,7 +30,6 @@ function loadSong(song) {
 }
 
 let songIndex = 0;
-let totalSongs = songs.length;
 
 // Next song
 function nextSong() {
