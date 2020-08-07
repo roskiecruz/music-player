@@ -1,7 +1,6 @@
 # Music player
 An experiment on audio files and updating CSS elements based on audio events.
-
-TODO: Add volume functionality
+Adding functionality to set volume
 
 Resources used:
 - Google Fonts
