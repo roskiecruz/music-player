@@ -39,7 +39,7 @@ body {
 }
 
 .player__container {
-  height: 570px;
+  height: 610px;
   width: 400px;
   background: var(--player-bg);
   border-radius: 20px;
@@ -157,6 +157,21 @@ h3 {
     /* Change this to show progress */
     width: 0%;
     transition: width 0.1s linear;
+}
+
+.player__theme-controls {
+  position: relative;
+  display: flex;
+  /* top: -15px;
+  left: 120px; */
+  margin-top: 20px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.player__theme-controls #theme-icon {
+  margin-left: 20px;
 }
 
 /* Media query: iPhone (Vertical) */

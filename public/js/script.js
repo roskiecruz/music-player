@@ -7,6 +7,7 @@ const progress = document.getElementById('progress');
 const volumeContainer = document.getElementById('volume-bar');
 const volumeIcon = document.getElementById('volume-icon');
 const volume = document.getElementById('volume');
+const themeIcon = document.getElementById('theme-icon');
 const currentTimeEl = document.getElementById('current-time');
 const durationEl = document.getElementById('duration');
 const prevBtn = document.getElementById('prev');
@@ -14,6 +15,9 @@ const playBtn = document.getElementById('play');
 const nextBtn = document.getElementById('next');
 
 let currentVolume = music.volume;
+let currentTheme = localStorage.getItem('theme');
+const sun = 'fa-sun';
+const moon = 'fa-moon';
 
 // Play
 function playOrPauseSong() {
@@ -60,11 +64,6 @@ function prevSong() {
     playOrPauseSong();
 }
 
-// On load - select first song
-loadSong(songs[songIndex]);
-updateProgressBar();
-updateVolumeBar();
-
 function getDurationElement(duration){
     // Calculate display for duration
     let minutes = Math.floor(duration / 60);
@@ -98,11 +97,13 @@ function updateProgressBar(e){
     }
 }
 
+// Helper function to clear class list
 function clearClassList(elem){
     elem.setAttribute("class", "");
     return elem.classList;
 }
 
+// Update volume icon based on volume
 function updateVolumeBar(e){
     const volumePercent = music.volume * 100;
     volume.style.width = `${volumePercent}%`;
@@ -138,6 +139,7 @@ function setVolume(e){
     music.volume = seekVolume;
 }
 
+// Mute unmute volume when volume icon is clicked
 function muteUnmute(){
     if(music.volume > 0){
         currentVolume = music.volume;
@@ -149,6 +151,30 @@ function muteUnmute(){
     }
 }
 
+function switchMode(mode){
+    document.documentElement.setAttribute('data-theme', mode);
+    (mode === 'dark') ? themeIcon.classList.replace(sun, moon) : themeIcon.classList.replace(moon, sun);
+    (mode === 'dark') ? themeIcon.setAttribute('title','Dark Mode') : themeIcon.setAttribute('title','Light Mode');
+}
+
+// Change theme when icon is clicked
+function switchTheme(){
+    currentTheme = localStorage.getItem('theme');
+    if(currentTheme === 'light'){
+        localStorage.setItem('theme','dark');
+        switchMode(localStorage.getItem('theme'));
+    } else {
+        localStorage.setItem('theme','light');
+        switchMode(localStorage.getItem('theme'));
+    }
+}
+
+// On load - select first song
+loadSong(songs[songIndex]);
+updateProgressBar();
+updateVolumeBar();
+switchMode(currentTheme);
+
 // Event listeners
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
@@ -158,3 +184,4 @@ music.addEventListener('volumechange', updateVolumeBar);
 progressContainer.addEventListener('click', setProgressBar);
 volumeContainer.addEventListener('click', setVolume);
 volumeIcon.addEventListener('click', muteUnmute);
+themeIcon.addEventListener('click', switchTheme);
