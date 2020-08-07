@@ -1,6 +1,27 @@
 /* Images created by: https://unsplash.com/@pawel_czerwinski */
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700;800;900&display=swap');
 
+/* CSS variables */
+:root {
+  --app-bg: #c9ced3;
+  --player-bg: #e7e7e7;
+  --font-color: #000;
+  --progress-bar: #ffffff; 
+  --player-progress: #666565;
+  --volume-progress:  #666565;
+  --icons: rgb(129, 129, 129);
+}
+
+[data-theme="dark"]{
+  --app-bg: #1a1a1a;
+  --player-bg: #2e2e2e;
+  --font-color: #ffffff;
+  --progress-bar: #666565;
+  --player-progress: #ffffff;
+  --volume-progress:  #ffffff;
+  --icons: rgb(221, 221, 221);
+}
+
 html {
   box-sizing: border-box;
 }
@@ -8,7 +29,8 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: #c9ced3;
+  background: var(--app-bg);
+  color: var(--font-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,7 +41,7 @@ body {
 .player__container {
   height: 570px;
   width: 400px;
-  background: #e7e7e7;
+  background: var(--player-bg);
   border-radius: 20px;
   box-shadow: 0 15px 30px 5px rgba(0, 0, 0, 0.3);
 }
@@ -56,7 +78,7 @@ h3 {
 
 /* Progress */
 .player__progress-container {
-  background: #fff;
+  background: var(--progress-bar);
   border-radius: 5px;
   cursor: pointer;
   margin: 40px 20px;
@@ -65,7 +87,7 @@ h3 {
 }
 
 .player__progress {
-  background: #242323;
+  background: var(--player-progress);
   border-radius: 5px;
   height: 100%;
   /* Change this to show progress */
@@ -90,7 +112,7 @@ h3 {
 
 .fas {
   font-size: 30px;
-  color: rgb(129, 129, 129);
+  color: var(--icons);
   margin-right: 30px;
   cursor: pointer;
   user-select: none;
@@ -118,7 +140,7 @@ h3 {
 }
 
 .player__volume-bar {
-    background: #fff;
+    background: var(--progress-bar);
     border-radius: 5px;
     cursor: pointer;
     /* margin: 40px 20px; */
@@ -129,7 +151,7 @@ h3 {
 }
 
 .player__volume {
-    background: #666565;
+    background: var(--volume-progress);
     border-radius: 5px;
     height: 100%;
     /* Change this to show progress */
