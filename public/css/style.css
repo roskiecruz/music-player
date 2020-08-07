@@ -123,9 +123,9 @@ h3 {
     cursor: pointer;
     /* margin: 40px 20px; */
     /* top right bottom left */
-    margin: -15px 0px 0px 30px;
+    margin: -15px 0px 0px 43px;
     height: 4px;
-    width: 90%;
+    width: 92%;
 }
 
 .player__volume {
@@ -133,7 +133,7 @@ h3 {
     border-radius: 5px;
     height: 100%;
     /* Change this to show progress */
-    width: 70%;
+    width: 0%;
     transition: width 0.1s linear;
 }
 
